@@ -22,14 +22,14 @@ public class EmployeeSteps {
 	}
 
 	@Step("Create a new user")
-	public void createUser() {
+	public void createUser(String name, String image, int age, int salary) {
 
 		JSONObject data = new JSONObject();
 
-		data.put("employee_name", "Shawn Test");
-		data.put("profile_image", "test.png");
-		data.put("employee_age", 30);
-		data.put("employee_salary", 11111);
+		data.put("employee_name", name);
+		data.put("profile_image", image);
+		data.put("employee_age", age);
+		data.put("employee_salary", salary);
 
 		response = SerenityRest.given().contentType("application/json").header("Content-Type", "application/json")
 				.body(data.toString()).when().post(URL + "/create");

@@ -33,7 +33,7 @@ public class EmployeesTest {
 	@Title("Create User")
 	public void createValidUser() {
 
-		employeeSteps.createUser();
+		employeeSteps.createUser("prajjawal","test.png", 21,2099);
 		employeeSteps.verifyStatusCode(200);
 		employeeSteps.verifyName("Shawn Test");
 		employeeSteps.verifyAge(30);
