@@ -89,9 +89,21 @@
            <groupId>org.json</groupId>
            <artifactId>json</artifactId>
            <version>${json.version}</version>
-        </dependency>      
-        
-    </dependencies>
+        </dependency>
+      <dependency>
+          <groupId>org.apache.tomcat.embed</groupId>
+          <artifactId>tomcat-embed-core</artifactId>
+          <version>9.0.55</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.kafka</groupId>
+          <artifactId>kafka-clients</artifactId>
+          <version>3.0.0</version>
+          <scope>test</scope>
+      </dependency>
+
+  </dependencies>
     <build>
         <plugins>
             <plugin>
