@@ -9,6 +9,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import java.io.IOException;
+import java.util.log;
 
 @RunWith(SerenityRunner.class)
 @WithTag("TestAutomation")
@@ -20,9 +21,11 @@ public class EmployeesTest {
 	@Test
 	@Title("Get User")
 	public void verifyValidUser() {
-		employeeSteps.sendUser(2);
+		employeeSteps.sendUser(1);
 		employeeSteps.verifyStatusCode(200);
-		employeeSteps.verifyId(2);
+		employeeSteps.verifyId(1);
+		log.info("completed the verification",employeeSteps.verifyId(1));
+		
 
 	}
 
@@ -32,11 +35,10 @@ public class EmployeesTest {
 
 		employeeSteps.createUser("test.json");
 		employeeSteps.verifyStatusCode(201);
-		employeeSteps.verifyName(employeeSteps.jsonMap.get("name").toString());
-		employeeSteps.verifyJob(employeeSteps.jsonMap.get("job").toString());
+		employeeSteps.verifyName(employeeSteps.jsonMap.get("name").toString().trim);
+		employeeSteps.verifyJob(employeeSteps.jsonMap.get("job").toString().trim);
 		Producer.ProduceEvent("tradeEvent.json");
-
-
+	
 
 	}
 
